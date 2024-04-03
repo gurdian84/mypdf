@@ -21,7 +21,10 @@ RUN apk add --no-cache curl jq
 # Set work directory
 WORKDIR /downloader
 
- 
+# Fetch the latest release jar from GitHub
+RUN curl -s https://api.github.com/repos/gurdian84/mypdf/releases/latest \
+    | jq -r ".assets[] | select(.name == \"Stirling-PDF.jar\") | .browser_download_url" \
+    | xargs curl -L -o Stirling-PDF.jar 
     
 # Use the base image
 FROM frooodle/stirling-pdf-base:version8
