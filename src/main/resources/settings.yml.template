@@ -3,7 +3,7 @@
 # If you want to override with environment parameter follow parameter naming SECURITY_INITIALLOGIN_USERNAME
 
 security:
-  enableLogin: false # set to 'true' to enable login
+  enableLogin: true # set to 'true' to enable login
   csrfDisabled: true
 
 system:
